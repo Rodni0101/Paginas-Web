@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Formulario.css">
+    <link rel="shortcut icon" href="./imagen/favicon (4).ico" type="image/x-icon">
+    <title>Formulario de Pedido - Pizza Pro</title>
+</head>
+
+<body>
+
+    <!-- Barra de Navegación (Header) -->
+    <header>
+        <nav>
+            <ul class="busqueda">
+                <li><a href="./Example-clase.html#inicio">Inicio</a></li>
+                <li><a href="./Menu.html">Menú</a></li>
+                <li><a href="./Promociones.html">Promociones</a></li>
+                <li><a href="./Example-clase.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenedor del Formulario -->
+    <div class="Formulario">
+        <form action="./Example-clase.html" method="get">
+
+            <fieldset>
+                <legend>Datos necesarios</legend>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="number" id="telefono" placeholder="Número de contacto" required>
+
+                <label for="direccion">Dirección de entrega:</label>
+                <input type="text" id="direccion" placeholder="Dirección" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Menú y preferencias</legend>
+
+                <label for="tamano">Tamaño:</label>
+                <select name="tamano" id="tamano">
+                    <option value="">Seleccione tamaño</option>
+                    <option value="pequena">Pequeña</option>
+                    <option value="mediana">Mediana</option>
+                    <option value="grande">Grande</option>
+                    <option value="familiar">Familiar</option>
+                </select>
+
+                <p class="titulo-extras">Extras</p>
+                <div class="extras">
+                    <label>
+                        <input type="checkbox" name="extra" value="queso"> Queso extra ($5.000)
+                    </label>
+                    <label>
+                        <input type="checkbox" name="extra" value="carnes"> Carnes extra ($12.000)
+                    </label>
+                    <label>
+                        <input type="checkbox" name="extra" value="gaseosa-l"> Gaseosa litro ($5.000)
+                    </label>
+                    <label>
+                        <input type="checkbox" name="extra" value="gaseosa-p"> Gaseosa personal ($2.500)
+                    </label>
+                </div>
+            </fieldset>
+
+            <button type="submit">Enviar el pedido</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

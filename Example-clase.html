@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pizzería El Gordo">
+    <meta name="keywords" content="Pizza, comida, restaurante">
+    
+    <link rel="shortcut icon" href="./imagen/favicon (4).ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/EstiloPrincipal.css">
+    <link rel="stylesheet" href="./css/sliders.css">
+
+    <title>Pizzas el gordo</title>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <ul class="busqueda">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="./Menu.html">Menú</a></li>
+                <li><a href="./Promociones.html">Promociones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- VIDEO FONDO -->
+    <div class="videof">
+        <video muted autoplay loop>
+            <source src="./video/The Best HD Pizza Compilation Video  - 1 Hour.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- HERO -->
+    <main id="inicio" class="seccion">
+        <div class="promo">
+            <h1>Disfruta tu pizza</h1>
+            <p><strong>Delicias el gordo</strong></p>
+
+            <a href="./Formulario.html">
+                <button>Haz tu pedido aquí</button>
+            </a>
+        </div>
+        <div class="capa"></div>
+    </main>
+
+    <!-- SLIDER -->
+    <section class="slidertools">
+
+        <input type="radio" name="slider" id="s1" checked>
+        <input type="radio" name="slider" id="s2">
+        <input type="radio" name="slider" id="s3">
+
+        <div class="slider">
+            <div class="slides">
+                <img src="./imagen/hawaiana-1024x683.jpg" alt="Pizza hawaiana">
+                <img src="./imagen/champiñonesxdd.jpg" alt="Pizza champiñones">
+                <img src="./imagen/Prueba2.jpg" alt="Pizza especial">
+            </div>
+        </div>
+
+        <div class="sliderbuttons">
+            <label for="s1"></label>
+            <label for="s2"></label>
+            <label for="s3"></label>
+        </div>
+
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="seccion contacto">
+        <h2>Contáctanos</h2>
+        <form class="formulario">
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo" required>
+            <textarea placeholder="Mensaje"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- Agrega esto dentro del <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Así quedaría tu Footer -->
+<footer class="footer">
+    <div class="footer-contenido">
+        <h3>Pizzería El Gordo</h3>
+        <p>©2026 Delicias El Gordo - Sabores que pesan</p>
+        
+        <div class="redes-sociales">
+            <a href="https://facebook.com" class="icon-fb" target="_blank">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com" class="icon-ig" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

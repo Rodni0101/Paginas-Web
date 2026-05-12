@@ -1,0 +1,228 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo de la página */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(/imagen/fondoFormulario.jpg) no-repeat center center/cover;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Contenedor del formulario */
+.Formulario {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Títulos de los fieldset */
+legend {
+    font-weight: bold;
+    color: #ff7e5f;
+    padding: 0 10px;
+}
+
+/* Agrupación */
+fieldset {
+    border: 2px solid #ffb199;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.check{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.check input{
+    width: auto;
+}
+
+input,
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+    margin-top: 4px;
+}
+
+/* Efecto al enfocar */
+input:focus,
+select:focus {
+    border-color: #ff7e5f;
+    box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #ff7e5f;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Hover botón */
+button:hover {
+    background: #e8644a;
+    transform: scale(1.05);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+}
+
+.extras label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.extras label:hover{
+    color: #ff7e5f;
+}
+
+.extras {
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.titulo-extras{
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Barra de busqueda */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.busqueda li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+}
+
+.busqueda li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #ff4d5a;
+    transition: 0.3s;
+}
+
+.busqueda li a:hover::after {
+    width: 100%;
+}
+
+/*RESPONSIVA*/
+@media (max-width: 600px) {
+    .Formulario {
+        width: 90%;
+    }
+
+    .promo h1 {
+        font-size: 35px;
+    }
+
+    .promo p {
+        font-size: 18px;
+    }
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    background: rgba(36, 36, 36, 0.5);
+    padding: 15px 0;
+    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+}
+
+
+
+
+
