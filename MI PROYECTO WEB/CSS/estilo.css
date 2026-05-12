@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+}
+
+.contenedor{
+    display: flex; /*activa flexbox*/
+    justify-content:space-evenly; /*espacios iguales*/
+    gap: 10px; /*espacio entre columnas*/
+    padding: 10px;/*borde interno*/
+}
+
+.columna{
+    flex: 1;/*del mismo ancho*/
+    padding: 20px;/*borde interno*/
+    background-color: rgb(65, 163, 255);/*color de fondo*/
+    border: 1px solid;/*borde externo*/
+    text-align: justify;      
+}
+
+p{
+    color: white;
+}
+
+.nav{
+    display: flex; 
+    justify-content:space-between; 
+    gap: 30px;
+    padding: 10px;
+}
+
+.enlaces{
+    flex: 1;
+    padding: 20px;
+    background-color: rgb(61, 161, 255);
+    border: 1px solid;
+    text-align: center; 
+    border-radius: 10px;
+}
+
+.enlaces:hover{ /*efecto de boton*/
+    background-color: rgb(190, 168, 39);
+}
+
+a{
+    text-decoration: none;
+}
