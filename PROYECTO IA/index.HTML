@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condominio Altura</title>
+
+    <!-- Fuente moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="./IMG/favicon.png" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            width: 100%;
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(8, 15, 35, 0.75),
+                    rgba(8, 15, 35, 0.75)),
+                url("https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=2070&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0px 5px 20px rgba(0, 114, 255, 0.5);
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            width: 0%;
+            height: 2px;
+            background: #00c6ff;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transition: 0.4s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            color: white;
+            animation: aparecer 1.2s ease;
+        }
+
+        .hero-content h2 {
+            font-size: 70px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-content span {
+            color: #00c6ff;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            line-height: 1.8;
+            color: #d8d8d8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.4s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 25px rgba(0, 114, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #111827;
+        }
+
+        /* ================= SECCIONES ================= */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        /* ================= CARDS ================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            transition: 0.4s;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* ================= CONJUNTOS ================= */
+
+        .conjuntos {
+            background: linear-gradient(to right, #0f172a, #111827);
+            color: white;
+        }
+
+        .conjunto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .conjunto {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+
+        .conjunto:hover {
+            transform: scale(1.03);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .conjunto h3 {
+            margin-bottom: 15px;
+            color: #00c6ff;
+        }
+
+        /* ================= ESTADISTICAS ================= */
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h2 {
+            font-size: 55px;
+            color: #0072ff;
+        }
+
+        .stat p {
+            color: #6b7280;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 50px 8%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-content h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-content p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            color: #94a3b8;
+        }
+
+        /* ================= ANIMACIONES ================= */
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 900px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-content h2 {
+                font-size: 45px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <!-- NAVBAR -->
+
+        <nav class="navbar">
+
+            <div class="logo">
+                <div class="logo-circle">A</div>
+                <h1>ALTURA</h1>
+            </div>
+
+            <div class="nav-links">
+                <a href="#">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#conjuntos">Conjuntos</a>
+                <a href="#estadisticas">Estadísticas</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+
+        </nav>
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <h2>
+                    Administración Inteligente
+                    para <span>Condominios Modernos</span>
+                </h2>
+
+                <p>
+                    Plataforma digital especializada en la gestión de condominios,
+                    conjuntos residenciales y comunidades privadas.
+                    Centraliza pagos, mantenimiento, seguridad y comunicación
+                    en una experiencia moderna y eficiente.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Explorar Plataforma</button>
+                    <button class="btn btn-secondary">Contactar</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= SERVICIOS ================= -->
+
+    <section id="servicios">
+
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones modernas para una administración eficiente</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Gestión Residencial</h3>
+                <p>
+                    Control total de múltiples conjuntos residenciales
+                    desde un solo panel administrativo.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💳</div>
+                <h3>Pagos y Finanzas</h3>
+                <p>
+                    Administración financiera automatizada,
+                    reportes y pagos en línea seguros.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Seguridad</h3>
+                <p>
+                    Registro de visitantes, accesos y monitoreo
+                    en tiempo real para residentes.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📢</div>
+                <h3>Comunicaciones</h3>
+                <p>
+                    Notificaciones instantáneas, anuncios y
+                    comunicación directa con residentes.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛠️</div>
+                <h3>Mantenimiento</h3>
+                <p>
+                    Solicitudes y seguimiento de reparaciones
+                    y mantenimiento de áreas comunes.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3>App Inteligente</h3>
+                <p>
+                    Acceso desde cualquier dispositivo
+                    con una experiencia rápida y moderna.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CONJUNTOS ================= -->
+
+    <section class="conjuntos" id="conjuntos">
+
+        <div class="section-title">
+            <h2 style="color: white;">Conjuntos Administrados</h2>
+            <p style="color: #cbd5e1;">
+                Gestiona múltiples residenciales desde un solo lugar
+            </p>
+        </div>
+
+        <div class="conjunto-grid">
+
+            <div class="conjunto">
+                <h3>Conjunto Altura Norte</h3>
+                <p>
+                    Administración premium con control de acceso,
+                    reservas y pagos automatizados.
+                </p>
+            </div>
+
+            <div class="conjunto">
+                <h3>Conjunto Altura Central</h3>
+                <p>
+                    Gestión integral de residentes,
+                    seguridad y mantenimiento.
+                </p>
+            </div>
+
+            <div class="conjunto">
+                <h3>Conjunto Altura Elite</h3>
+                <p>
+                    Plataforma inteligente para condominios
+                    modernos y exclusivos.
+                </p>
+            </div>
+
+            <div class="conjunto">
+                <h3>Conjunto Altura Garden</h3>
+                <p>
+                    Soluciones digitales enfocadas en
+                    eficiencia y bienestar comunitario.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= ESTADISTICAS ================= -->
+
+    <section id="estadisticas">
+
+        <div class="section-title">
+            <h2>Impacto de la Plataforma</h2>
+            <p>Resultados reales en administración residencial</p>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h2>+15</h2>
+                <p>Conjuntos Administrados</p>
+            </div>
+
+            <div class="stat">
+                <h2>+500</h2>
+                <p>Familias Registradas</p>
+            </div>
+
+            <div class="stat">
+                <h2>98%</h2>
+                <p>Satisfacción</p>
+            </div>
+
+            <div class="stat">
+                <h2>24/7</h2>
+                <p>Soporte Disponible</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contacto">
+
+        <div class="footer-content">
+
+            <div>
+                <h3>Condominio Altura</h3>
+                <p>
+                    Innovación, seguridad y eficiencia
+                    para comunidades residenciales modernas.
+                </p>
+            </div>
+
+            <div>
+                <h3>Contacto</h3>
+                <p>Email: contacto@altura.com</p>
+                <p>Teléfono: +57 300 000 0000</p>
+            </div>
+
+            <div>
+                <h3>Ubicación</h3>
+                <p>Cartagena, Colombia</p>
+                <p>Administración Digital Inteligente</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Condominio Altura — Todos los derechos reservados
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
