@@ -477,3 +477,7 @@ footer{
         height: 300px;
     }
 }
+
+textarea{
+    font-family: Arial, Helvetica, sans-serif;
+}
