@@ -2,205 +2,84 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Pizzería El Gordo">
-    <meta name="keywords" content="Pizza, restaurante, comida rápida">
-
+    <meta name="description" content="Pizzería El Gordo - pizzas artesanales en Cartagena">
+    <meta name="keywords" content="pizza, restaurante, domicilio, cartagena">
     <title>Pizzería El Gordo</title>
-
     <link rel="shortcut icon" href="./imagen/favicon (4).ico" type="image/x-icon">
-
-    <!-- FUENTE -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <!-- ICONOS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/EstiloPrincipal.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./CONTENIDO/css/EstiloPrincipal.css">
 </head>
 
 <body>
-
-    <!--Video de fondo-->
-
-    <!-- VIDEO FONDO -->
-
-    <div class="videof">
-
-        <iframe
-            src="https://www.youtube.com/embed/4gSE_bCyztA?autoplay=1&mute=1&loop=1&playlist=4gSE_bCyztA&controls=0&showinfo=0&modestbranding=1&start=3"
-            title="Video fondo pizza" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-        </iframe>
-
-    </div>
-
-    <!-- NAVBAR -->
-    <header>
-
+    <header class="header-scroll">
         <nav>
-
             <ul class="busqueda">
-
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="./CONTENIDO/Menu.html">Menú</a></li>
                 <li><a href="./CONTENIDO/Promociones.html">Promociones</a></li>
                 <li><a href="#contacto">Contacto</a></li>
-
             </ul>
-
         </nav>
-
     </header>
-
-    <!-- HERO -->
     <main id="inicio">
-
-        <!-- CAPA OSCURA -->
+        <div class="videof">
+            <iframe
+                src="https://www.youtube.com/embed/4gSE_bCyztA?autoplay=1&mute=1&loop=1&playlist=4gSE_bCyztA&controls=0"
+                title="Video fondo pizza" allow="autoplay"></iframe>
+        </div>
         <div class="capa"></div>
-
-        <!-- CONTENIDO -->
         <section class="promo">
-
-            <h1>Disfruta la mejor pizza</h1>
-
-            <p>
-                <strong>Delicias El Gordo</strong> 🍕
-            </p>
-
-            <a href="./CONTENIDO/Formulario.html">
-
-                <button>
-                    Haz tu pedido aquí
-                </button>
-
-            </a>
-
-            <!-- CALIFICACIÓN -->
-
-            <div class="calificacion">
-
-                <h3>¿Qué te parece nuestra pizza?</h3>
-
-                <div class="stars">
-
-                    <input type="radio" name="rating" id="star5">
-                    <label for="star5">★</label>
-
-                    <input type="radio" name="rating" id="star4">
-                    <label for="star4">★</label>
-
-                    <input type="radio" name="rating" id="star3">
-                    <label for="star3">★</label>
-
-                    <input type="radio" name="rating" id="star2">
-                    <label for="star2">★</label>
-
-                    <input type="radio" name="rating" id="star1">
-                    <label for="star1">★</label>
-
-                </div>
-
-                <button class="btn-rating">
-                    Enviar calificación
-                </button>
-
+            <span class="badge">🔥 Pizzas artesanales</span>
+            <h1>La mejor pizza de Cartagena</h1>
+            <p>Ingredientes frescos, masa artesanal y entregas rápidas con el auténtico sabor de <strong>Delicias El
+                    Gordo</strong>.</p>
+            <div class="hero-buttons">
+                <a href="./CONTENIDO/Formulario.html"><button>Haz tu pedido</button></a>
+                <a href="./CONTENIDO/Menu.html" class="secondary-btn">Ver menú</a>
             </div>
-
+            <div class="stats">
+                <div><strong>+2.000</strong><span>Clientes felices</span></div>
+                <div><strong>30 min</strong><span>Entrega promedio</span></div>
+                <div><strong>4.9★</strong><span>Calificación</span></div>
+            </div>
         </section>
-
     </main>
-
-    <!-- SLIDER -->
-    <br>
     <section class="slidertools">
-
-        <input type="radio" name="slider" id="s1" checked>
-        <input type="radio" name="slider" id="s2">
-        <input type="radio" name="slider" id="s3">
-
+        <h2>Nuestras especialidades</h2>
         <div class="slider">
-
             <div class="slides">
-
                 <img src="./imagen/hawaiana-1024x683.jpg" alt="Pizza hawaiana">
-
-                <img src="./imagen/champiñonesxdd.jpg" alt="Pizza de champiñones">
-
                 <img src="./imagen/Prueba2.jpg" alt="Pizza especial">
-
+                <img src="./imagen/combo_familia.jpg" alt="Combo familiar">
             </div>
-
         </div>
-
-        <!-- BOTONES -->
-        <div class="sliderbuttons">
-
-            <label for="s1"></label>
-            <label for="s2"></label>
-            <label for="s3"></label>
-
-        </div>
-
     </section>
-
-    <!-- CONTACTO -->
     <section id="contacto" class="seccion">
-
         <h2>Contáctanos</h2>
-
-        <form class="formulario">
-
+        <form class="formulario" id="contactForm">
             <input type="text" placeholder="Nombre" required>
-
             <input type="email" placeholder="Correo electrónico" required>
-
             <textarea placeholder="Escribe tu mensaje"></textarea>
-
-            <button type="submit">
-                Enviar mensaje
-            </button>
-
+            <button type="submit">Enviar mensaje</button>
         </form>
-
     </section>
-
-    <!-- FOOTER -->
     <footer>
-
         <div class="footer-contenido">
-
             <h3>Pizzería El Gordo</h3>
-
-            <p>
-                © 2026 Delicias El Gordo — Sabores que pesan 🍕
-            </p>
-
+            <p>© 2026 Delicias El Gordo — Sabores que pesan 🍕</p>
             <div class="redes-sociales">
-
-                <a href="https://facebook.com" target="_blank" class="icon-fb">
-
-                    <i class="fa-brands fa-facebook"></i>
-
-                </a>
-
-                <a href="https://instagram.com" target="_blank" class="icon-ig">
-
-                    <i class="fa-brands fa-instagram"></i>
-
-                </a>
-
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-instagram"></i></a>
             </div>
-
         </div>
-
     </footer>
-
+    <script src="./CONTENIDO/js/main.js"></script>
 </body>
 
 </html>
