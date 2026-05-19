@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CONTENT-PIZZA/css/Formulario.css">
-    <link rel="shortcut icon" href="./imagen/favicon (4).ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/Formulario.css">
+    <link rel="shortcut icon" href="/imagen/favicon (4).ico" type="image/x-icon">
     <title>Formulario de Pedido - Pizza Pro</title>
 </head>
 
@@ -15,64 +15,91 @@
     <header>
         <nav>
             <ul class="busqueda">
-                <li><a href="./Example-clase.html#inicio">Inicio</a></li>
+                <li><a href="../Example-clase.html#inicio">Inicio</a></li>
                 <li><a href="./Menu.html">Menú</a></li>
                 <li><a href="./Promociones.html">Promociones</a></li>
-                <li><a href="./Example-clase.html#contacto">Contacto</a></li>
+                <li><a href="../Example-clase.html#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Contenedor del Formulario -->
-    <div class="Formulario">
-        <form action="./Example-clase.html" method="get">
+    <!-- Contenedor Parallax Principal -->
+    <main class="contenedor-parallax">
+        
+        <div class="Formulario">
+            <!-- Título único integrado al formulario para darle identidad -->
+            <div class="formulario-header">
+                <h2>Arma tu Pedido</h2>
+                <p>Ingresa tus datos y recibe el mejor sabor en minutos</p>
+            </div>
 
-            <fieldset>
-                <legend>Datos necesarios</legend>
+            <form action="./Example-clase.html" method="get">
 
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <fieldset>
+                    <legend>Datos necesarios</legend>
 
-                <label for="telefono">Teléfono:</label>
-                <input type="number" id="telefono" placeholder="Número de contacto" required>
+                    <div class="input-group">
+                        <input type="text" id="nombre" placeholder=" " required>
+                        <label for="nombre">Nombre completo</label>
+                    </div>
 
-                <label for="direccion">Dirección de entrega:</label>
-                <input type="text" id="direccion" placeholder="Dirección" required>
-            </fieldset>
+                    <div class="input-group">
+                        <input type="number" id="telefono" placeholder=" " required>
+                        <label for="telefono">Teléfono de contacto</label>
+                    </div>
 
-            <fieldset>
-                <legend>Menú y preferencias</legend>
+                    <div class="input-group">
+                        <input type="text" id="direccion" placeholder=" " required>
+                        <label for="direccion">Dirección de entrega</label>
+                    </div>
+                </fieldset>
 
-                <label for="tamano">Tamaño:</label>
-                <select name="tamano" id="tamano">
-                    <option value="">Seleccione tamaño</option>
-                    <option value="pequena">Pequeña</option>
-                    <option value="mediana">Mediana</option>
-                    <option value="grande">Grande</option>
-                    <option value="familiar">Familiar</option>
-                </select>
+                <fieldset>
+                    <legend>Menú y preferencias</legend>
 
-                <p class="titulo-extras">Extras</p>
-                <div class="extras">
-                    <label>
-                        <input type="checkbox" name="extra" value="queso"> Queso extra ($5.000)
-                    </label>
-                    <label>
-                        <input type="checkbox" name="extra" value="carnes"> Carnes extra ($12.000)
-                    </label>
-                    <label>
-                        <input type="checkbox" name="extra" value="gaseosa-l"> Gaseosa litro ($5.000)
-                    </label>
-                    <label>
-                        <input type="checkbox" name="extra" value="gaseosa-p"> Gaseosa personal ($2.500)
-                    </label>
-                </div>
-            </fieldset>
+                    <div class="select-group">
+                        <label for="tamano">Tamaño de la Pizza</label>
+                        <select name="tamano" id="tamano">
+                            <option value="">Seleccione tamaño...</option>
+                            <option value="pequena">Pequeña</option>
+                            <option value="mediana">Mediana</option>
+                            <option value="grande">Grande</option>
+                            <option value="familiar">Familiar</option>
+                        </select>
+                    </div>
 
-            <button type="submit">Enviar el pedido</button>
-        </form>
-    </div>
+                    <p class="titulo-extras">Adicionales especiales</p>
+                    <div class="extras">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="extra" value="queso">
+                            <span class="custom-check"></span>
+                            <span class="text-check">Queso extra <b>($5.000)</b></span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="extra" value="carnes">
+                            <span class="custom-check"></span>
+                            <span class="text-check">Carnes extra <b>($12.000)</b></span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="extra" value="gaseosa-l">
+                            <span class="custom-check"></span>
+                            <span class="text-check">Gaseosa litro <b>($5.000)</b></span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="extra" value="gaseosa-p">
+                            <span class="custom-check"></span>
+                            <span class="text-check">Gaseosa personal <b>($2.500)</b></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <button type="submit">
+                    <span>Hornear y Enviar Pedido</span>
+                </button>
+            </form>
+        </div>
+
+    </main>
 
 </body>
-
 </html>
