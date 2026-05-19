@@ -5,40 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <script= src="Logica/logica.js"></script>
-    <title>Document</title>
+    <script src="Logica/logica.js" defer></script>
+    <title>Registro de productos</title>
 </head>
 
 <body>
-    <h1>Registro de usuario</h1>
+
+    <h1>Registro de producto</h1>
     <hr>
-    <br>
 
-    <div class="Cuadros">
-        <h2>Codigo
-            <input type="text" placeholder="Codigo de Producto" required>
-        </h2>
+    <form id="registroProducto" class="cuadros">
 
-        <h2>Producto
-            <input type="text" placeholder="Nombre del Producto" required>
-        </h2>
+        <label for="codigo">Código</label>
+        <input id="codigo" type="text" placeholder="Código de Producto" required>
 
-        <h2>Valor
-            <input type="text" placeholder="Valor del producto" required>
-        </h2>
+        <label for="producto">Producto</label>
+        <input id="producto" type="text" placeholder="Nombre del Producto" required>
 
-        <h2>Cantidad
-            <input type="number" placeholder="Cantidad" required>
-        </h2>
+        <label for="valor">Valor</label>
+        <input id="valor" type="number" placeholder="Valor del producto" required>
 
-        <h2>Total
-            <input type="number" placeholder="Total" readonly>
-        </h2>
-    </div>
+        <label for="cantidad">Cantidad</label>
+        <input id="cantidad" type="number" placeholder="Cantidad" required>
+
+        <label for="total">Total</label>
+        <input id="total" type="number" placeholder="Total" readonly>
+
         <div class="boton">
-            <button onclick="verVentas()">Ver ventas</button>
-            <button id="Limpiar">Limpiar</button>
+            <button type="button" onclick="verVentas()">Ver ventas</button>
+            <button type="button" id="limpiar">Limpiar</button>
         </div>
+
+    </form>
 
 </body>
 
