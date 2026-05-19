@@ -1,0 +1,3 @@
+function verVentas(){
+    alert("Holi")
+}
