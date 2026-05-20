@@ -24,3 +24,12 @@ function Restar(){
 
     document.getElementById("resultado").innerHTML = "Resultado de la resta = " + resta
 }
+
+function limpiar(){
+    document.getElementById("nombre").value = " "
+    document.getElementById("apellido").value = " "
+    document.getElementById("numero1").value = " "
+    document.getElementById("numero2").value = " "
+
+    document.getElementById("resultado").innerText = " "
+}

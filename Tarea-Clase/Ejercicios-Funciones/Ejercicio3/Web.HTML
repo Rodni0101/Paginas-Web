@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="ee">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./E3.js"></script>
+    <link rel="stylesheet" href="estilo.css">
     <title>Funciones JS 3</title>
 </head>
+
 <body>
     <h1>Ejercicios propuestos</h1>
 
     <h2>Ejercicio #1</h2>
-    <input type="text" id="nombre" placeholder="Nombre">
+    <div id="inputs1">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre">
 
-    <input type="text" id="apellido" placeholder="Apellido">
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido">
+    </div>
+    <div id="botones1">
+        <button onclick="saludar()">Saludar</button>
 
-    <button onclick="saludar()">Saludar</button>
-
+        <button onclick="limpiar()">Limpiar</button>
+    </div>
     <p id="Result"></p>
 
     <h2>Ejercicio #2</h2>
+    <div id="inputs2">
+        <label for="numero1">Primer número</label>
+        <input type="text" id="numero1">
 
-    <input type="text" id="numero1" placeholder="primer numero">
-    <input type="text" id="numero2" placeholder="Segundo numero">
+        <label for="numero2">Segundo número</label>
+        <input type="text" id="numero2">
+    </div>
 
-    <button onclick="Sumar()">Sumar</button>
+    <div id="botones2">
+        <button onclick="Sumar()">Sumar</button>
 
-    <button onclick="Restar()">Restar</button>
+        <button onclick="Restar()">Restar</button>
+
+        <button onclick="limpiar()">Limpiar</button>
+    </div>
 
     <p id="resultado"></p>
 </body>
+
 </html>
