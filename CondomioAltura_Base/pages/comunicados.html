@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunicados — Condominio Altura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+
+  <!--
+    ESTILOS ESPECÍFICOS DE ESTA PÁGINA:
+    Solo agrega aquí lo que NO existe en estilos.css.
+    Evita repetir estilos globales.
+  -->
+  <style>
+    /* Tarjeta de comunicado individual */
+    .comunicado {
+      background: var(--color-superficie);
+      border: 1px solid var(--color-borde);
+      border-radius: var(--radio-md);
+      padding: var(--espacio-md) var(--espacio-lg);
+      box-shadow: var(--sombra-suave);
+      border-left: 5px solid var(--color-primario); /* línea de color izquierda */
+      margin-bottom: var(--espacio-md);
+    }
+
+    .comunicado.urgente {
+      border-left-color: #dc3545; /* rojo para urgentes */
+    }
+
+    .comunicado.informativo {
+      border-left-color: #2196f3; /* azul para informativos */
+    }
+
+    .comunicado-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--espacio-md);
+      margin-bottom: var(--espacio-sm);
+      flex-wrap: wrap;
+    }
+
+    .comunicado-fecha {
+      font-size: 0.82rem;
+      color: var(--color-texto-suave);
+    }
+
+    .comunicado h3 {
+      font-family: var(--fuente-titulo);
+      font-size: 1.1rem;
+      color: var(--color-primario-oscuro);
+      margin-bottom: var(--espacio-sm);
+    }
+
+    .comunicado p {
+      color: var(--color-texto-suave);
+      font-size: 0.95rem;
+    }
+
+    /* Barra de filtros */
+    .filtros {
+      display: flex;
+      gap: var(--espacio-sm);
+      flex-wrap: wrap;
+      margin-bottom: var(--espacio-lg);
+    }
+
+    .filtro-btn {
+      padding: 6px 16px;
+      border: 1.5px solid var(--color-borde);
+      border-radius: 99px;
+      background: var(--color-superficie);
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-family: var(--fuente-cuerpo);
+      color: var(--color-texto);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .filtro-btn:hover,
+    .filtro-btn.activo {
+      background: var(--color-primario);
+      border-color: var(--color-primario);
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN (igual en todas las páginas, solo cambia "activo") -->
+  <nav class="nav-barra">
+    <div class="nav-contenido">
+      <a href="../index.html" class="nav-logo">Condominio <span>Altura</span></a>
+      <ul class="nav-enlaces">
+        <li><a href="../index.html"             class="nav-enlace">Inicio</a></li>
+        <li><a href="./comunicados.html"         class="nav-enlace activo">Comunicados</a></li>
+        <li><a href="./reservas.html"            class="nav-enlace">Reservas</a></li>
+        <li><a href="./pagos.html"               class="nav-enlace">Pagos</a></li>
+        <li><a href="./conjunto1.html"           class="nav-enlace">Conjunto 1</a></li>
+        <li><a href="./conjunto2.html"           class="nav-enlace">Conjunto 2</a></li>
+        <li><a href="./conjunto3.html"           class="nav-enlace">Conjunto 3</a></li>
+        <li><a href="./conjunto4.html"           class="nav-enlace">Conjunto 4</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ENCABEZADO DE PÁGINA INTERNA -->
+  <div class="encabezado-pagina">
+    <div class="contenedor">
+      <h1>📢 Comunicados y Noticias</h1>
+      <p>Avisos oficiales de la administración del Condominio Altura</p>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="seccion contenedor">
+
+    <!--
+      FILTROS:
+      Por ahora son visuales. En el futuro puedes conectarlos con JavaScript
+      para que realmente filtren los comunicados.
+    -->
+    <div class="filtros">
+      <button class="filtro-btn activo">Todos</button>
+      <button class="filtro-btn">Urgentes</button>
+      <button class="filtro-btn">Mantenimiento</button>
+      <button class="filtro-btn">Asambleas</button>
+      <button class="filtro-btn">Informativos</button>
+    </div>
+
+
+    <!--
+      LISTA DE COMUNICADOS:
+      Para agregar uno nuevo, copia un bloque <div class="comunicado ...">
+      y cambia la clase: urgente / informativo (o ninguna para general)
+    -->
+
+    <!-- Comunicado urgente -->
+    <div class="comunicado urgente">
+      <div class="comunicado-meta">
+        <span class="badge badge-rojo">🔴 Urgente</span>
+        <span class="comunicado-fecha">21 de mayo de 2026</span>
+        <span class="comunicado-fecha">Administración General</span>
+      </div>
+      <h3>Corte de agua programado — Conjunto 2 y 3</h3>
+      <p>
+        Se informa a los residentes que el día miércoles 25 de mayo de 2026,
+        entre las 8:00 a.m. y las 2:00 p.m., se realizará un corte de suministro
+        de agua por trabajos de mantenimiento en la red interna. Se recomienda
+        almacenar agua con anticipación.
+      </p>
+    </div>
+
+    <!-- Comunicado de asamblea -->
+    <div class="comunicado">
+      <div class="comunicado-meta">
+        <span class="badge badge-amarillo">📋 Asamblea</span>
+        <span class="comunicado-fecha">15 de mayo de 2026</span>
+        <span class="comunicado-fecha">Administración General</span>
+      </div>
+      <h3>Convocatoria — Asamblea Ordinaria de Copropietarios</h3>
+      <p>
+        Se convoca a todos los propietarios y residentes a la Asamblea Ordinaria
+        que se realizará el sábado 7 de junio de 2026 a las 9:00 a.m. en el
+        salón comunal. Temas: aprobación de presupuesto, elección de consejo
+        de administración y estado de obras.
+      </p>
+    </div>
+
+    <!-- Comunicado informativo -->
+    <div class="comunicado informativo">
+      <div class="comunicado-meta">
+        <span class="badge badge-azul">ℹ️ Informativo</span>
+        <span class="comunicado-fecha">10 de mayo de 2026</span>
+        <span class="comunicado-fecha">Administración General</span>
+      </div>
+      <h3>Nuevos horarios del salón comunal</h3>
+      <p>
+        A partir del 1 de junio de 2026, el salón comunal estará disponible
+        de lunes a viernes de 7:00 a.m. a 10:00 p.m., y los fines de semana
+        de 7:00 a.m. a 11:00 p.m. Las reservas se hacen con mínimo 48 horas
+        de anticipación a través de esta plataforma.
+      </p>
+    </div>
+
+    <!-- Comunicado de mantenimiento -->
+    <div class="comunicado">
+      <div class="comunicado-meta">
+        <span class="badge badge-verde">🔧 Mantenimiento</span>
+        <span class="comunicado-fecha">5 de mayo de 2026</span>
+        <span class="comunicado-fecha">Administración General</span>
+      </div>
+      <h3>Mantenimiento preventivo de ascensores</h3>
+      <p>
+        Los ascensores de los conjuntos 1 y 4 serán sometidos a mantenimiento
+        preventivo anual los días 28 y 29 de mayo respectivamente. Durante ese
+        tiempo estarán fuera de servicio. Pedimos disculpas por las molestias.
+      </p>
+    </div>
+
+  </main>
+
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie-pagina">
+    <p><strong>Condominio Altura</strong> &nbsp;·&nbsp; Plataforma de gestión residencial</p>
+    <p class="mt-sm">Para soporte contacta a <a href="mailto:admin@condominioaltura.com">admin@condominioaltura.com</a></p>
+  </footer>
+
+</body>
+</html>

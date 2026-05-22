@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    PLANTILLA DE CONJUNTO:
+    Para crear los Conjuntos 2, 3 y 4:
+    1. Copia este archivo completo.
+    2. Cambia "Conjunto 4" por "Conjunto 2" (o el número que corresponda) en:
+       - El <title>
+       - El <h1>
+       - El subtítulo del encabezado
+       - El class="nav-enlace" (muévelo al enlace correcto)
+    3. Actualiza los datos de unidades, noticias y estado en el contenido.
+  -->
+  <title>Conjunto 4 — Condominio Altura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+
+  <style>
+    .panel {
+      background: var(--color-superficie);
+      border: 1px solid var(--color-borde);
+      border-radius: var(--radio-md);
+      padding: var(--espacio-lg);
+      box-shadow: var(--sombra-suave);
+    }
+
+    .panel-titulo {
+      font-family: var(--fuente-titulo);
+      font-size: 1.1rem;
+      color: var(--color-primario-oscuro);
+      margin-bottom: var(--espacio-md);
+      padding-bottom: var(--espacio-sm);
+      border-bottom: 1px solid var(--color-borde);
+    }
+
+    /* Lista de unidades del conjunto */
+    .unidad-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-borde);
+      font-size: 0.93rem;
+    }
+
+    .unidad-item:last-child {
+      border-bottom: none;
+    }
+
+    .unidad-numero {
+      font-weight: 600;
+      color: var(--color-primario-oscuro);
+    }
+
+    .unidad-residente {
+      color: var(--color-texto-suave);
+      font-size: 0.88rem;
+    }
+
+    /* Aviso interno del conjunto */
+    .novedad-item {
+      padding: var(--espacio-sm) 0;
+      border-bottom: 1px dashed var(--color-borde);
+      font-size: 0.92rem;
+    }
+
+    .novedad-item:last-child {
+      border-bottom: none;
+    }
+
+    .novedad-fecha {
+      font-size: 0.8rem;
+      color: var(--color-texto-suave);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="nav-barra">
+    <div class="nav-contenido">
+      <a href="../index.html" class="nav-logo">Condominio <span>Altura</span></a>
+      <ul class="nav-enlaces">
+        <li><a href="../index.html"             class="nav-enlace">Inicio</a></li>
+        <li><a href="./comunicados.html"         class="nav-enlace">Comunicados</a></li>
+        <li><a href="./reservas.html"            class="nav-enlace">Reservas</a></li>
+        <li><a href="./pagos.html"               class="nav-enlace">Pagos</a></li>
+        <li><a href="./conjunto4.html"           class="nav-enlace">Conjunto 4</a></li>
+        <li><a href="./conjunto2.html"           class="nav-enlace">Conjunto 2</a></li>
+        <li><a href="./conjunto3.html"           class="nav-enlace">Conjunto 3</a></li>
+        <li><a href="./conjunto4.html"           class="nav-enlace">Conjunto 4</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ENCABEZADO -->
+  <div class="encabezado-pagina">
+    <div class="contenedor">
+      <h1>🏠 Conjunto 4</h1>
+      <p>Información, unidades y novedades del Conjunto 4 — Condominio Altura</p>
+    </div>
+  </div>
+
+
+  <!-- ESTADÍSTICAS DEL CONJUNTO -->
+  <div class="barra-stats">
+    <div class="stats-grilla">
+      <div class="stat-item">
+        <div class="stat-numero">20</div>
+        <div class="stat-etiqueta">Unidades totales</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">18</div>
+        <div class="stat-etiqueta">Al día en pagos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">2</div>
+        <div class="stat-etiqueta">En mora</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">4 pisos</div>
+        <div class="stat-etiqueta">Torres</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO -->
+  <main class="seccion contenedor">
+    <div class="grilla">
+
+      <!-- Lista de unidades -->
+      <div class="panel">
+        <h2 class="panel-titulo">Unidades — Conjunto 4</h2>
+
+        <!--
+          UNIDADES:
+          Agrega tantas como tenga el conjunto.
+          Cambia el badge según el estado de pago:
+          badge-verde = al día · badge-rojo = mora · badge-amarillo = pendiente
+        -->
+        <div class="unidad-item">
+          <div>
+            <div class="unidad-numero">Apto 101-A</div>
+            <div class="unidad-residente">Familia González</div>
+          </div>
+          <span class="badge badge-verde">Al día</span>
+        </div>
+
+        <div class="unidad-item">
+          <div>
+            <div class="unidad-numero">Apto 101-B</div>
+            <div class="unidad-residente">Familia Rodríguez</div>
+          </div>
+          <span class="badge badge-verde">Al día</span>
+        </div>
+
+        <div class="unidad-item">
+          <div>
+            <div class="unidad-numero">Apto 102-A</div>
+            <div class="unidad-residente">Familia Martínez</div>
+          </div>
+          <span class="badge badge-rojo">En mora</span>
+        </div>
+
+        <div class="unidad-item">
+          <div>
+            <div class="unidad-numero">Apto 102-B</div>
+            <div class="unidad-residente">Familia López</div>
+          </div>
+          <span class="badge badge-amarillo">Pendiente</span>
+        </div>
+
+        <div class="unidad-item">
+          <div>
+            <div class="unidad-numero">Apto 201-A</div>
+            <div class="unidad-residente">Familia Sánchez</div>
+          </div>
+          <span class="badge badge-verde">Al día</span>
+        </div>
+
+        <div class="unidad-item">
+          <div>
+            <div class="unidad-numero">Apto 201-B</div>
+            <div class="unidad-residente">Familia Torres</div>
+          </div>
+          <span class="badge badge-verde">Al día</span>
+        </div>
+
+        <div class="texto-centrado mt-md">
+          <a href="./pagos.html" class="btn btn-secundario">Ver estado de pagos completo</a>
+        </div>
+      </div>
+
+
+      <!-- Novedades internas del conjunto -->
+      <div>
+        <div class="panel mb-md">
+          <h2 class="panel-titulo">Novedades internas</h2>
+
+          <!--
+            Novedades específicas de este conjunto.
+            Distinto a los comunicados generales del condominio.
+          -->
+          <div class="novedad-item">
+            <strong>Reemplazo de bomba de agua — Torre A</strong>
+            <div class="novedad-fecha">20 mayo 2026</div>
+            <p class="texto-suave" style="font-size:0.88rem; margin-top:4px;">
+              Se instaló nueva bomba de presión. El servicio ya está normalizado.
+            </p>
+          </div>
+
+          <div class="novedad-item">
+            <strong>Pintura de pasillos — Piso 2</strong>
+            <div class="novedad-fecha">12 mayo 2026</div>
+            <p class="texto-suave" style="font-size:0.88rem; margin-top:4px;">
+              Trabajos de pintura finalizados. Agradecemos la paciencia de los residentes.
+            </p>
+          </div>
+
+          <div class="novedad-item">
+            <strong>Reunión de vecinos — Conjunto 4</strong>
+            <div class="novedad-fecha">5 mayo 2026</div>
+            <p class="texto-suave" style="font-size:0.88rem; margin-top:4px;">
+              Se acordó la instalación de nueva iluminación LED en garajes.
+              Inicio: 1 de junio.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- Accesos rápidos -->
+        <div class="panel">
+          <h2 class="panel-titulo">Accesos rápidos</h2>
+          <div class="formulario">
+            <a href="./comunicados.html" class="btn btn-secundario btn-bloque">
+              📢 Ver comunicados generales
+            </a>
+            <a href="./reservas.html" class="btn btn-secundario btn-bloque">
+              📅 Reservar área común
+            </a>
+            <a href="./pagos.html" class="btn btn-primario btn-bloque">
+              💳 Consultar mis pagos
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie-pagina">
+    <p><strong>Condominio Altura</strong> &nbsp;·&nbsp; Plataforma de gestión residencial</p>
+    <p class="mt-sm">Para soporte contacta a <a href="mailto:admin@condominioaltura.com">admin@condominioaltura.com</a></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagos — Condominio Altura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+
+  <style>
+    /* Layout dos columnas: resumen + tabla */
+    .layout-pagos {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: var(--espacio-lg);
+      align-items: start;
+    }
+
+    @media (max-width: 800px) {
+      .layout-pagos {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--color-superficie);
+      border: 1px solid var(--color-borde);
+      border-radius: var(--radio-md);
+      padding: var(--espacio-lg);
+      box-shadow: var(--sombra-suave);
+    }
+
+    .panel-titulo {
+      font-family: var(--fuente-titulo);
+      font-size: 1.1rem;
+      color: var(--color-primario-oscuro);
+      margin-bottom: var(--espacio-md);
+      padding-bottom: var(--espacio-sm);
+      border-bottom: 1px solid var(--color-borde);
+    }
+
+    /* Tarjeta de estado de pago */
+    .estado-pago {
+      text-align: center;
+      padding: var(--espacio-md) 0;
+    }
+
+    .estado-pago-monto {
+      font-family: var(--fuente-titulo);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--color-primario);
+    }
+
+    .estado-pago-label {
+      font-size: 0.85rem;
+      color: var(--color-texto-suave);
+      margin-top: var(--espacio-xs);
+    }
+
+    .estado-pago-vence {
+      margin-top: var(--espacio-md);
+      padding: var(--espacio-sm);
+      background: var(--color-acento-claro);
+      border-radius: var(--radio-sm);
+      font-size: 0.88rem;
+      color: var(--color-texto);
+    }
+
+    /* Detalle de desglose */
+    .desglose-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--color-borde);
+      font-size: 0.93rem;
+    }
+
+    .desglose-item:last-child {
+      border-bottom: none;
+      font-weight: 600;
+      color: var(--color-primario-oscuro);
+    }
+
+    .desglose-label {
+      color: var(--color-texto-suave);
+    }
+
+    .desglose-valor {
+      font-weight: 600;
+    }
+
+    /* Filtro de búsqueda de unidad */
+    .busqueda-unidad {
+      display: flex;
+      gap: var(--espacio-sm);
+      margin-bottom: var(--espacio-lg);
+    }
+
+    .busqueda-unidad .campo {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="nav-barra">
+    <div class="nav-contenido">
+      <a href="../index.html" class="nav-logo">Condominio <span>Altura</span></a>
+      <ul class="nav-enlaces">
+        <li><a href="../index.html"             class="nav-enlace">Inicio</a></li>
+        <li><a href="./comunicados.html"         class="nav-enlace">Comunicados</a></li>
+        <li><a href="./reservas.html"            class="nav-enlace">Reservas</a></li>
+        <li><a href="./pagos.html"               class="nav-enlace activo">Pagos</a></li>
+        <li><a href="./conjunto1.html"           class="nav-enlace">Conjunto 1</a></li>
+        <li><a href="./conjunto2.html"           class="nav-enlace">Conjunto 2</a></li>
+        <li><a href="./conjunto3.html"           class="nav-enlace">Conjunto 3</a></li>
+        <li><a href="./conjunto4.html"           class="nav-enlace">Conjunto 4</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ENCABEZADO -->
+  <div class="encabezado-pagina">
+    <div class="contenedor">
+      <h1>💳 Pagos y Cuotas de Administración</h1>
+      <p>Consulta el estado de tu cuota e historial de pagos</p>
+    </div>
+  </div>
+
+
+  <!-- ESTADÍSTICAS RÁPIDAS -->
+  <div class="barra-stats">
+    <div class="stats-grilla">
+      <div class="stat-item">
+        <div class="stat-numero">$480.000</div>
+        <div class="stat-etiqueta">Cuota mensual</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">12</div>
+        <div class="stat-etiqueta">Unidades al día</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">3</div>
+        <div class="stat-etiqueta">Unidades en mora</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">May 31</div>
+        <div class="stat-etiqueta">Próximo vencimiento</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="seccion contenedor">
+
+    <!-- Búsqueda de unidad -->
+    <div class="aviso aviso-info mb-md">
+      Ingresa el número de tu apartamento para consultar el estado de tu cuenta.
+    </div>
+
+    <div class="busqueda-unidad">
+      <input type="text" class="campo" placeholder="Ej: 101-A, 302-B..." id="buscar-unidad">
+      <button class="btn btn-primario" onclick="buscarUnidad()">Consultar</button>
+    </div>
+
+
+    <div class="layout-pagos">
+
+      <!-- COLUMNA IZQUIERDA: Estado actual y desglose -->
+      <div>
+
+        <!-- Estado de pago del mes actual -->
+        <div class="panel mb-md">
+          <h2 class="panel-titulo">Estado — Mayo 2026</h2>
+
+          <div class="estado-pago">
+            <div class="estado-pago-monto">$480.000</div>
+            <div class="estado-pago-label">Cuota de administración</div>
+            <div class="estado-pago-vence">
+              📅 Vence el <strong>31 de mayo de 2026</strong>
+            </div>
+          </div>
+
+          <div class="mt-md">
+            <span class="badge badge-amarillo">⏳ Pendiente de pago</span>
+          </div>
+
+          <button class="btn btn-acento btn-bloque mt-md">
+            Reportar pago realizado
+          </button>
+        </div>
+
+
+        <!-- Desglose de la cuota -->
+        <div class="panel">
+          <h2 class="panel-titulo">Desglose de cuota</h2>
+
+          <!--
+            Para ajustar el desglose, cambia los valores de cada .desglose-item.
+            El último ítem es el TOTAL — mantenlo con la suma correcta.
+          -->
+          <div class="desglose-item">
+            <span class="desglose-label">Administración básica</span>
+            <span class="desglose-valor">$280.000</span>
+          </div>
+          <div class="desglose-item">
+            <span class="desglose-label">Aseo y jardines</span>
+            <span class="desglose-valor">$80.000</span>
+          </div>
+          <div class="desglose-item">
+            <span class="desglose-label">Seguridad</span>
+            <span class="desglose-valor">$60.000</span>
+          </div>
+          <div class="desglose-item">
+            <span class="desglose-label">Fondo de reserva</span>
+            <span class="desglose-valor">$60.000</span>
+          </div>
+          <div class="desglose-item">
+            <span class="desglose-label">TOTAL</span>
+            <span class="desglose-valor">$480.000</span>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- COLUMNA DERECHA: Historial de pagos -->
+      <div class="panel">
+        <h2 class="panel-titulo">Historial de pagos — Apto 101-A</h2>
+
+        <!--
+          TABLA DE PAGOS:
+          Para agregar filas, copia un <tr> del <tbody> y ajusta los datos.
+          Las clases de badge cambian el color del estado:
+          badge-verde = pagado, badge-rojo = mora, badge-amarillo = pendiente
+        -->
+        <div class="tabla-contenedor">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Período</th>
+                <th>Monto</th>
+                <th>Fecha pago</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mayo 2026</td>
+                <td>$480.000</td>
+                <td>—</td>
+                <td><span class="badge badge-amarillo">Pendiente</span></td>
+              </tr>
+              <tr>
+                <td>Abril 2026</td>
+                <td>$480.000</td>
+                <td>3 abril 2026</td>
+                <td><span class="badge badge-verde">Pagado</span></td>
+              </tr>
+              <tr>
+                <td>Marzo 2026</td>
+                <td>$480.000</td>
+                <td>1 marzo 2026</td>
+                <td><span class="badge badge-verde">Pagado</span></td>
+              </tr>
+              <tr>
+                <td>Febrero 2026</td>
+                <td>$480.000</td>
+                <td>28 feb 2026</td>
+                <td><span class="badge badge-verde">Pagado</span></td>
+              </tr>
+              <tr>
+                <td>Enero 2026</td>
+                <td>$480.000</td>
+                <td>5 enero 2026</td>
+                <td><span class="badge badge-verde">Pagado</span></td>
+              </tr>
+              <tr>
+                <td>Diciembre 2025</td>
+                <td>$460.000</td>
+                <td>15 dic 2025</td>
+                <td><span class="badge badge-rojo">Mora (+$23.000)</span></td>
+              </tr>
+              <tr>
+                <td>Noviembre 2025</td>
+                <td>$460.000</td>
+                <td>2 nov 2025</td>
+                <td><span class="badge badge-verde">Pagado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="aviso aviso-alerta mt-md">
+          Los pagos realizados por fuera de la plataforma deben reportarse
+          enviando el comprobante a <strong>pagos@condominioaltura.com</strong>
+          o directamente en administración.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie-pagina">
+    <p><strong>Condominio Altura</strong> &nbsp;·&nbsp; Plataforma de gestión residencial</p>
+    <p class="mt-sm">Para soporte contacta a <a href="mailto:admin@condominioaltura.com">admin@condominioaltura.com</a></p>
+  </footer>
+
+
+  <!--
+    JAVASCRIPT MÍNIMO:
+    Solo lógica básica de interfaz. No modifica datos reales.
+    Cuando tengas un backend, reemplaza esto por una llamada a tu API.
+  -->
+  <script>
+    function buscarUnidad() {
+      const valor = document.getElementById('buscar-unidad').value.trim();
+      if (valor) {
+        // Por ahora solo muestra un aviso. Con backend harías fetch() aquí.
+        alert('Consultando unidad: ' + valor + '\n\n(Conecta esta función a tu backend para mostrar datos reales)');
+      } else {
+        alert('Por favor ingresa el número de unidad.');
+      }
+    }
+  </script>
+
+</body>
+</html>

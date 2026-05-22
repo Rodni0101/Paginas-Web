@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Condominio Altura — Inicio</title>
+
+  <!--
+    FUENTES DE GOOGLE:
+    Playfair Display = títulos con personalidad
+    Lato = cuerpo limpio y moderno
+    Puedes cambiarlas en fonts.google.com y pegar el nuevo enlace aquí.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Tu única hoja de estilos. Todos los archivos HTML apuntan a esta. -->
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVEGACIÓN PRINCIPAL
+       Para agregar un nuevo módulo, copia un <li> y cambia el href y el texto.
+       Marca la página activa con class="nav-enlace activo"
+  ═══════════════════════════════════════════════ -->
+  <nav class="nav-barra">
+    <div class="nav-contenido">
+      <a href="./index.html" class="nav-logo">Condominio <span>Altura</span></a>
+      <ul class="nav-enlaces">
+        <li><a href="./index.html" class="nav-enlace activo">Inicio</a></li>
+        <li><a href="./pages/comunicados.html" class="nav-enlace">Comunicados</a></li>
+        <li><a href="./pages/reservas.html" class="nav-enlace">Reservas</a></li>
+        <li><a href="./pages/pagos.html" class="nav-enlace">Pagos</a></li>
+        <li><a href="./pages/conjunto1.html" class="nav-enlace">Conjunto 1</a></li>
+        <li><a href="./pages/conjunto2.html" class="nav-enlace">Conjunto 2</a></li>
+        <li><a href="./pages/conjunto3.html" class="nav-enlace">Conjunto 3</a></li>
+        <li><a href="./pages/conjunto4.html" class="nav-enlace">Conjunto 4</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════
+       HERO — PORTADA PRINCIPAL
+       Cambia el texto aquí para personalizar la bienvenida.
+  ═══════════════════════════════════════════════ -->
+  <section class="hero hero-flyer">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-contenido">
+      <span class="hero-badge">Plataforma Residencial</span>
+
+      <h1 class="hero-titulo">Condominio Altura</h1>
+
+      <p class="hero-subtitulo">
+        Todo lo que necesitas para tu comunidad en un solo lugar:
+        comunicados, reservas y pagos al alcance de un clic.
+      </p>
+
+      <a href="./pages/comunicados.html" class="btn btn-acento">Ver comunicados</a>
+      &nbsp;
+      <a href="./pages/reservas.html" class="btn btn-secundario">Reservar área común</a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SECCIÓN: MÓDULOS PRINCIPALES
+       Cada tarjeta es un módulo. Para agregar uno nuevo,
+       copia un <div class="tarjeta"> y cambia su contenido.
+  ═══════════════════════════════════════════════ -->
+  <section class="seccion contenedor">
+    <h2 class="seccion-titulo">¿Qué puedo hacer aquí?</h2>
+    <p class="seccion-subtitulo">Módulos disponibles para residentes y administración</p>
+
+    <div class="grilla">
+
+      <!-- Tarjeta: Comunicados -->
+      <div class="tarjeta">
+        <div class="tarjeta-icono">📢</div>
+        <h3 class="tarjeta-titulo">Comunicados y Noticias</h3>
+        <p class="tarjeta-texto">
+          Mantente al día con los avisos de administración, asambleas,
+          mantenimientos programados y novedades del condominio.
+        </p>
+        <a href="./pages/comunicados.html" class="btn btn-secundario mt-md">Ver comunicados</a>
+      </div>
+
+      <!-- Tarjeta: Reservas -->
+      <div class="tarjeta">
+        <div class="tarjeta-icono">📅</div>
+        <h3 class="tarjeta-titulo">Reservas de Áreas Comunes</h3>
+        <p class="tarjeta-texto">
+          Agenda el salón comunal, la piscina, la cancha o el gimnasio
+          de forma rápida y sin conflictos de horario.
+        </p>
+        <a href="./pages/reservas.html" class="btn btn-secundario mt-md">Hacer una reserva</a>
+      </div>
+
+      <!-- Tarjeta: Pagos -->
+      <div class="tarjeta">
+        <div class="tarjeta-icono">💳</div>
+        <h3 class="tarjeta-titulo">Pagos y Cuotas</h3>
+        <p class="tarjeta-texto">
+          Consulta el estado de tu cuota de administración, historial
+          de pagos y fechas de vencimiento por unidad.
+        </p>
+        <a href="./pages/pagos.html" class="btn btn-secundario mt-md">Ver mis pagos</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SECCIÓN: MISIÓN, VISIÓN, OBJETIVOS
+       (Preservada de tu versión original)
+  ═══════════════════════════════════════════════ -->
+  <section class="seccion fondo-crema">
+    <div class="contenedor">
+      <h2 class="seccion-titulo texto-centrado">Nuestra comunidad</h2>
+      <p class="seccion-subtitulo texto-centrado">Los valores que nos guían</p>
+
+      <div class="grilla-3">
+
+        <div class="tarjeta">
+          <h3 class="tarjeta-titulo">🌿 Misión</h3>
+          <p class="tarjeta-texto">
+            Ofrecemos una solución digital integral para condominios: comunicación fluida,
+            control financiero claro y mantenimiento eficiente de áreas comunes.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h3 class="tarjeta-titulo">🔭 Visión</h3>
+          <p class="tarjeta-texto">
+            Ser la plataforma líder en administración residencial de la región,
+            reconocida por innovación, confiabilidad y compromiso con el bienestar comunitario.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h3 class="tarjeta-titulo">🎯 Objetivos</h3>
+          <p class="tarjeta-texto">
+            Centralizar pagos, mantenimiento, comunicados, reservas y control de acceso
+            en una sola plataforma intuitiva, accesible en todo momento.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SECCIÓN: CONJUNTOS
+       Para agregar un conjunto nuevo, copia un <div class="tarjeta"> y ajusta.
+  ═══════════════════════════════════════════════ -->
+  <section class="seccion contenedor">
+    <h2 class="seccion-titulo">Nuestros conjuntos</h2>
+    <p class="seccion-subtitulo">Selecciona tu conjunto para ver la información específica</p>
+
+    <div class="grilla">
+      <a href="./pages/conjunto1.html" class="tarjeta" style="text-decoration:none;">
+        <div class="tarjeta-icono">🏠</div>
+        <h3 class="tarjeta-titulo">Conjunto 1</h3>
+        <p class="tarjeta-texto">Ver unidades, novedades y estado del conjunto.</p>
+      </a>
+      <a href="./pages/conjunto2.html" class="tarjeta" style="text-decoration:none;">
+        <div class="tarjeta-icono">🏠</div>
+        <h3 class="tarjeta-titulo">Conjunto 2</h3>
+        <p class="tarjeta-texto">Ver unidades, novedades y estado del conjunto.</p>
+      </a>
+      <a href="./pages/conjunto3.html" class="tarjeta" style="text-decoration:none;">
+        <div class="tarjeta-icono">🏠</div>
+        <h3 class="tarjeta-titulo">Conjunto 3</h3>
+        <p class="tarjeta-texto">Ver unidades, novedades y estado del conjunto.</p>
+      </a>
+      <a href="./pages/conjunto4.html" class="tarjeta" style="text-decoration:none;">
+        <div class="tarjeta-icono">🏠</div>
+        <h3 class="tarjeta-titulo">Conjunto 4</h3>
+        <p class="tarjeta-texto">Ver unidades, novedades y estado del conjunto.</p>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       PIE DE PÁGINA
+  ═══════════════════════════════════════════════ -->
+  <footer class="pie-pagina">
+    <p><strong>Condominio Altura</strong> &nbsp;·&nbsp; Plataforma de gestión residencial</p>
+    <p class="mt-sm">Para soporte contacta a <a href="mailto:admin@condominioaltura.com">admin@condominioaltura.com</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>

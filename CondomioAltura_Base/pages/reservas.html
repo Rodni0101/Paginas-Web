@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas — Condominio Altura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+
+  <style>
+    /* Layout de dos columnas: formulario + historial */
+    .layout-reservas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--espacio-lg);
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      .layout-reservas {
+        grid-template-columns: 1fr; /* En móvil, apila verticalmente */
+      }
+    }
+
+    /* Panel lateral */
+    .panel {
+      background: var(--color-superficie);
+      border: 1px solid var(--color-borde);
+      border-radius: var(--radio-md);
+      padding: var(--espacio-lg);
+      box-shadow: var(--sombra-suave);
+    }
+
+    .panel-titulo {
+      font-family: var(--fuente-titulo);
+      font-size: 1.1rem;
+      color: var(--color-primario-oscuro);
+      margin-bottom: var(--espacio-md);
+      padding-bottom: var(--espacio-sm);
+      border-bottom: 1px solid var(--color-borde);
+    }
+
+    /* Tarjeta de área disponible */
+    .area-item {
+      display: flex;
+      align-items: center;
+      gap: var(--espacio-md);
+      padding: var(--espacio-sm) 0;
+      border-bottom: 1px solid var(--color-borde);
+    }
+
+    .area-item:last-child {
+      border-bottom: none;
+    }
+
+    .area-icono {
+      font-size: 1.4rem;
+      width: 40px;
+      text-align: center;
+    }
+
+    .area-info {
+      flex: 1;
+    }
+
+    .area-nombre {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-texto);
+    }
+
+    .area-capacidad {
+      font-size: 0.82rem;
+      color: var(--color-texto-suave);
+    }
+
+    /* Item del historial de reservas */
+    .reserva-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: var(--espacio-sm) 0;
+      border-bottom: 1px solid var(--color-borde);
+      gap: var(--espacio-md);
+    }
+
+    .reserva-item:last-child {
+      border-bottom: none;
+    }
+
+    .reserva-area {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--color-texto);
+    }
+
+    .reserva-fecha {
+      font-size: 0.82rem;
+      color: var(--color-texto-suave);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="nav-barra">
+    <div class="nav-contenido">
+      <a href="../index.html" class="nav-logo">Condominio <span>Altura</span></a>
+      <ul class="nav-enlaces">
+        <li><a href="../index.html"             class="nav-enlace">Inicio</a></li>
+        <li><a href="./comunicados.html"         class="nav-enlace">Comunicados</a></li>
+        <li><a href="./reservas.html"            class="nav-enlace activo">Reservas</a></li>
+        <li><a href="./pagos.html"               class="nav-enlace">Pagos</a></li>
+        <li><a href="./conjunto1.html"           class="nav-enlace">Conjunto 1</a></li>
+        <li><a href="./conjunto2.html"           class="nav-enlace">Conjunto 2</a></li>
+        <li><a href="./conjunto3.html"           class="nav-enlace">Conjunto 3</a></li>
+        <li><a href="./conjunto4.html"           class="nav-enlace">Conjunto 4</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ENCABEZADO -->
+  <div class="encabezado-pagina">
+    <div class="contenedor">
+      <h1>📅 Reservas de Áreas Comunes</h1>
+      <p>Agendamiento de salón comunal, piscina, cancha y gimnasio</p>
+    </div>
+  </div>
+
+
+  <!-- ESTADÍSTICAS RÁPIDAS -->
+  <div class="barra-stats">
+    <div class="stats-grilla">
+      <div class="stat-item">
+        <div class="stat-numero">4</div>
+        <div class="stat-etiqueta">Áreas disponibles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">3</div>
+        <div class="stat-etiqueta">Reservas este mes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">5</div>
+        <div class="stat-etiqueta">Días de anticipación</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="seccion contenedor">
+
+    <div class="layout-reservas">
+
+      <!-- COLUMNA IZQUIERDA: Formulario de reserva -->
+      <div>
+        <div class="panel">
+          <h2 class="panel-titulo">Nueva reserva</h2>
+
+          <!--
+            FORMULARIO DE RESERVA:
+            Por ahora solo muestra los campos.
+            Para que funcione de verdad necesitarás un backend (PHP, Node.js, etc.)
+            o un servicio como Formspree (formspree.io) que es gratuito.
+          -->
+          <form class="formulario" action="#" method="POST">
+
+            <div class="grupo-campo">
+              <label for="unidad">Número de unidad / apto</label>
+              <input type="text" id="unidad" name="unidad" class="campo"
+                     placeholder="Ej: 101-A" required>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="residente">Nombre del residente</label>
+              <input type="text" id="residente" name="residente" class="campo"
+                     placeholder="Tu nombre completo" required>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="area">Área a reservar</label>
+              <!--
+                Para agregar una nueva área, añade un <option> aquí.
+              -->
+              <select id="area" name="area" class="campo" required>
+                <option value="">— Selecciona un área —</option>
+                <option value="salon">Salón comunal</option>
+                <option value="piscina">Piscina</option>
+                <option value="cancha">Cancha múltiple</option>
+                <option value="gimnasio">Gimnasio</option>
+              </select>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="fecha">Fecha deseada</label>
+              <input type="date" id="fecha" name="fecha" class="campo" required>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="hora-inicio">Hora de inicio</label>
+              <input type="time" id="hora-inicio" name="hora-inicio" class="campo" required>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="hora-fin">Hora de fin</label>
+              <input type="time" id="hora-fin" name="hora-fin" class="campo" required>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="motivo">Motivo o descripción del evento</label>
+              <textarea id="motivo" name="motivo" class="campo" rows="3"
+                        placeholder="Ej: Celebración de cumpleaños, reunión familiar..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primario btn-bloque">
+              Enviar solicitud de reserva
+            </button>
+
+          </form>
+
+          <div class="aviso aviso-info mt-md">
+            Las reservas deben hacerse con mínimo <strong>48 horas</strong> de anticipación.
+            La administración confirmará por correo electrónico.
+          </div>
+        </div>
+      </div>
+
+
+      <!-- COLUMNA DERECHA: Áreas disponibles + historial -->
+      <div>
+
+        <!-- Áreas disponibles -->
+        <div class="panel mb-md">
+          <h2 class="panel-titulo">Áreas comunes</h2>
+
+          <!--
+            Para agregar un área nueva, copia un .area-item y ajusta el contenido.
+          -->
+          <div class="area-item">
+            <div class="area-icono">🎉</div>
+            <div class="area-info">
+              <div class="area-nombre">Salón comunal</div>
+              <div class="area-capacidad">Capacidad: 80 personas · Lun-Dom 7:00-23:00</div>
+            </div>
+            <span class="badge badge-verde">Disponible</span>
+          </div>
+
+          <div class="area-item">
+            <div class="area-icono">🏊</div>
+            <div class="area-info">
+              <div class="area-nombre">Piscina</div>
+              <div class="area-capacidad">Capacidad: 30 personas · Lun-Dom 8:00-20:00</div>
+            </div>
+            <span class="badge badge-verde">Disponible</span>
+          </div>
+
+          <div class="area-item">
+            <div class="area-icono">🏀</div>
+            <div class="area-info">
+              <div class="area-nombre">Cancha múltiple</div>
+              <div class="area-capacidad">Fútbol, baloncesto · Lun-Dom 7:00-22:00</div>
+            </div>
+            <span class="badge badge-amarillo">Reservada hoy</span>
+          </div>
+
+          <div class="area-item">
+            <div class="area-icono">💪</div>
+            <div class="area-info">
+              <div class="area-nombre">Gimnasio</div>
+              <div class="area-capacidad">Capacidad: 10 personas · Lun-Sáb 5:00-22:00</div>
+            </div>
+            <span class="badge badge-verde">Disponible</span>
+          </div>
+        </div>
+
+
+        <!-- Historial de reservas recientes -->
+        <div class="panel">
+          <h2 class="panel-titulo">Reservas recientes</h2>
+
+          <!--
+            Aquí mostraría las reservas de la base de datos.
+            Por ahora son datos de ejemplo (estáticos).
+          -->
+          <div class="reserva-item">
+            <div>
+              <div class="reserva-area">🎉 Salón comunal</div>
+              <div class="reserva-fecha">Apto 302-B · 25 mayo · 2:00-8:00 p.m.</div>
+            </div>
+            <span class="badge badge-verde">Aprobada</span>
+          </div>
+
+          <div class="reserva-item">
+            <div>
+              <div class="reserva-area">🏀 Cancha múltiple</div>
+              <div class="reserva-fecha">Apto 115-A · 21 mayo · 4:00-6:00 p.m.</div>
+            </div>
+            <span class="badge badge-amarillo">Pendiente</span>
+          </div>
+
+          <div class="reserva-item">
+            <div>
+              <div class="reserva-area">🏊 Piscina</div>
+              <div class="reserva-fecha">Apto 201-C · 18 mayo · 10:00 a.m.-1:00 p.m.</div>
+            </div>
+            <span class="badge badge-verde">Aprobada</span>
+          </div>
+
+          <div class="reserva-item">
+            <div>
+              <div class="reserva-area">🎉 Salón comunal</div>
+              <div class="reserva-fecha">Apto 405-B · 12 mayo · 12:00-6:00 p.m.</div>
+            </div>
+            <span class="badge badge-gris">Completada</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie-pagina">
+    <p><strong>Condominio Altura</strong> &nbsp;·&nbsp; Plataforma de gestión residencial</p>
+    <p class="mt-sm">Para soporte contacta a <a href="mailto:admin@condominioaltura.com">admin@condominioaltura.com</a></p>
+  </footer>
+
+</body>
+</html>
