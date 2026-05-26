@@ -1,0 +1,339 @@
+/* Variables de Sistema de Diseño */
+:root {
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    
+    /* Colores de la marca */
+    --color-brand-primary: #1D9E75;
+    --color-brand-deep: #0F6E56;
+    --color-brand-pale: #E1F5EE;
+    
+    /* Paleta Neutra */
+    --color-background-primary: #ffffff;
+    --color-background-surface: #F1EFE8;
+    --color-text-primary: #2C2C2A;
+    --color-text-secondary: #555450;
+    --color-text-tertiary: #888780;
+    --color-border-tertiary: rgba(0, 0, 0, 0.08);
+    --border-radius-lg: 12px;
+}
+
+/* Reset general */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: var(--font-sans); 
+    color: var(--color-text-primary);
+    background-color: #fafafa;
+    padding-top: 96px; 
+    line-height: 1.5;
+}
+
+/* BARRA DE NAVEGACIÓN MINIMALISTA RESURGIDA */
+.navegador {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px; 
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 1000;
+}
+
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-container svg {
+    display: block;
+    height: 56px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.cuadro a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+}
+
+.cuadro a:hover {
+    color: var(--color-brand-primary);
+}
+
+/* ==========================================================================
+   MECÁNICA DE MENÚ HAMBURGUESA EN CSS
+   ========================================================================== */
+.menu-checkbox {
+    display: none;
+}
+
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   ESTILOS RESPONSIVE (Móviles y Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .contenedor-mv { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .grid-4 { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .navegador { 
+        padding: 0 24px; 
+    }
+
+    .hamburger-btn {
+        display: flex;
+    }
+
+    /* Comportamiento del menú desplegable */
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        position: absolute;
+        top: 76px; 
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 0.5px solid var(--color-border-tertiary);
+        padding: 16px 24px 24px 24px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .cuadro {
+        padding: 14px 0;
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .cuadro:last-child {
+        border-bottom: none;
+    }
+
+    .cuadro a {
+        font-size: 16px; 
+        display: block;
+        width: 100%;
+    }
+
+    /* selectores de activación interactiva */
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .menu-checkbox:checked ~ .hamburger-btn span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-checkbox:checked ~ .hamburger-btn span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-checkbox:checked ~ .hamburger-btn span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 520px) {
+    .grid-4 { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* ==========================================================================
+   ESTILOS COMPLEMENTARIOS Y OPTIMIZACIÓN DE CARDS CUADRADAS
+   ========================================================================== */
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 24px 0;
+}
+
+.hero-section h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+}
+
+.contenedor-mv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+}
+
+.columna-mv {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+}
+
+.columna-mv strong {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-brand-deep);
+    margin-bottom: 12px;
+}
+
+.columna-mv p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin-bottom: 16px;
+}
+
+.section { 
+    margin-bottom: 40px; 
+}
+
+.card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 24px;
+}
+
+.grid-4 { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; 
+}
+
+/* REGLAS PARA ESTRUCTURA CUADRADA INVARIABLE */
+.conjunto-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    aspect-ratio: 1 / 1; 
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.conjunto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+.conjunto-header {
+    height: 38%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.conjunto-body { 
+    padding: 16px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1; 
+}
+
+.conjunto-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+}
+
+.conjunto-desc {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    margin-bottom: auto; 
+}
+
+.tag-container {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.divider {
+    height: 0.5px;
+    background: var(--color-border-tertiary);
+    margin: 28px 0;
+}
